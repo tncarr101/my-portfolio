@@ -25,4 +25,8 @@ function addRandomGreeting() {
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
+
+
+  //setting volume of audio    
+  document.getElementById("boom").volume = 0.4;
 }
