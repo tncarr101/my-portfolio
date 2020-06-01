@@ -10,14 +10,18 @@
     <div id= "content">
       <h1 id= "greeting"> Welcome to Toni's Portfolio! </h1>
 
-     <h2> Who am I? </h2>
+     <h2 text-align: "center"> Who am I? </h2>
 
+    <div class = "intro">
      <h3> Where am I from? </h3>
-      <p id= "intro"> Greeting and Salutations! I am Toni! Whenever I am asked who am I, this is always a hard question. Well... I am originally from
+      <p> Greeting and Salutations! I am Toni! Whenever I am asked who am I, this is always a hard question. Well... I am originally from
           Tacoma, Washington which is about 35 minutes outside of Seattle. This is where my Pacific Northwest roots stem start. I currently
           reside in Charlotte, NC where I have lived for about 9 years. Living here, I have picked up a little southern hospitality. 
       </p>
+    </div>
 
+<br>    
+    <div id = "interests">
       <h3> My interests </h3>
        <p> First things first, I am a lover of music! </p>
        <p> This is one of my favorite songs! </p>
@@ -33,14 +37,56 @@
   <li>Boating</li>
   <li>Swimming</li>
 </ul>  
+    </div>
 
-<video width = "320" height = "240" controls autoplay loop>
-    <source src = "/imagesAudio/sunset.mp4" type="audio/mpeg">
-    Your browser does not support the audio tag.
-</video>
+    <div class = "blog">
+        <h3> What do I like to photograph? </h3>
+        <p> On a regular basis, I usually like to take pictures of friends and families in their element.
+         Seeing the people you love happy is one of my greatest joys in life. Additionally, photographing natural elements such as 
+         sunsets, water, and nature's beauty. </p>
+         
+         <br>
+
+         <h3> Do I have a hidden talent? </h3>
+         <p> </p>
+</div> 
+
+    
+<div class="gallery">
+  <a target="_blank" href="/imagesAudio/philly.jpg">
+    <img src="/imagesAudio/philly.jpg" alt="My trip in Philly" width="600" height="400">
+  </a>
+  <div class="desc">Spruce Street Harbor Park, Philadelphia, Pennsylvania</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/imagesAudio/sandiego.jpg">
+    <img src="/imagesAudio/sandiego.jpg" alt="San Diego" width="600" height="400">
+  </a>
+  <div class="desc">San Diego, California</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/imagesAudio/uncf.JPG">
+    <img src="/imagesAudio/uncf.JPG" alt="San Francisco" width="600" height="400">
+  </a>
+  <div class="desc">San Francisco, California</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/imagesAudio/sunset.jpg">
+    <img src="/imagesAudio/sunset.jpg" alt="Sunset" width="600" height="400">
+  </a>
+  <div class="desc">Charlotte, NC</div>
+</div>
 
 
-<p> Resume Page <a href= "resume.html">Resume </a> </p> 
+<div class= "footer">
+    <hr/>
+    <footer>
+ Take a look at my resume! <a href= "resume.html">Resume </a>
+    </footer>
+</div>
 <!--
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
@@ -48,6 +94,8 @@
     </div>
 
     -->
+
+
     <script src="script.js"></script>
   </body>
 </html>
