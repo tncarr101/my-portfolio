@@ -46,9 +46,8 @@ div.desc {
 
 div.footer {
     clear:both;
+    font-weight: bold;
+    text-align: center;
 }
 
-#interests {
-    border-style: solid;
-}
 

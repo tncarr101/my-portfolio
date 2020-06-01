@@ -31,8 +31,10 @@ function addRandomGreeting() {
   document.getElementById("song").volume = 0.2;
 
 
-
+/*
   window.onload = function() {
     document.getElementById("song").play();
+    
 }
 
+*/
