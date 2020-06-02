@@ -26,3 +26,15 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+  //setting volume of audio    
+  document.getElementById("song").volume = 0.2;
+
+
+/*
+  window.onload = function() {
+    document.getElementById("song").play();
+    
+}
+
+*/

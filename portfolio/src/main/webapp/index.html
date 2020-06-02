@@ -4,15 +4,103 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    
   </head>
   <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
+    <div id= "content">
+      <h1 id= "greeting"> Welcome to Toni's Portfolio! </h1>
+
+     <h2 style= "text-align: center;"> Who am I? </h2>
+
+    <div class = "intro">
+     <h3> Where am I from? </h3>
+      <p> Greeting and Salutations! I am Toni! Whenever I am asked who am I, this is always a hard question. Well... I am originally from
+          Tacoma, Washington which is about 35 minutes outside of Seattle. This is where my Pacific Northwest roots stem start. I currently
+          reside in Charlotte, NC where I have lived for about 9 years. Living here, I have picked up a little southern hospitality. I enjoy
+          spending time with my family and friends, staying active, and being outside. 
+      </p>
+    </div>
+
+<br>    
+    <div id = "interests">
+      <h3> What are my interests?</h3>
+       <p> First things first, I am a lover of music! </p>
+       <p> Click to listen to one of my favorite songs! </p>
+
+       <audio id= "song" controls>
+    <source src="/imagesAudio/indiaArie.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+
+<ul type = "circle">
+  <li>Hiking</li>
+  <li>Boating</li>
+  <li>Swimming</li>
+  <li> Traveling </li>
+  <li> Reading </li>
+</ul>  
+    </div>
+
+    <div class = "blog">
+        <h3> What do I like to photograph? </h3>
+        <p> On a regular basis, I usually like to take pictures of friends and families in their element.
+         Seeing the people you love happy is one of my greatest joys in life. Additionally, photographing natural elements such as 
+         sunsets, water, and nature's beauty. </p>
+         
+         <br>
+
+         <h3> Do I have a hidden talent? </h3>
+         <p> Currently, I don't think I have a hidden talent. But after being ask this question, I will continue to develop my hiddent talent! Haha! </p>
+</div> 
+
+    
+<div class="gallery">
+  <a target="_blank" href="/imagesAudio/philly.jpg">
+    <img src="/imagesAudio/philly.jpg" alt="My trip in Philly" width="600" height="400">
+  </a>
+  <div class="desc">Spruce Street Harbor Park, Philadelphia, Pennsylvania</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/imagesAudio/sandiego.jpg">
+    <img src="/imagesAudio/sandiego.jpg" alt="San Diego" width="600" height="400">
+  </a>
+  <div class="desc">San Diego, California</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/imagesAudio/uncf.JPG">
+    <img src="/imagesAudio/uncf.JPG" alt="San Francisco" width="600" height="400">
+  </a>
+  <div class="desc">San Francisco, California</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/imagesAudio/sunset.jpg">
+    <img src="/imagesAudio/sunset.jpg" alt="Sunset" width="600" height="400">
+  </a>
+  <div class="desc">Charlotte, NC</div>
+</div>
+
+
+<div class= "footer">
+    <hr/>
+    <footer>
+    <h3> Want to learn more about me? Take a look at my resume! </h3>
+ Resume: <a href= "resume.html" style = "font-weight: normal" >Resume </a>
+    </footer>
+</div>
+
+
+<!--
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
     </div>
+
+    -->
+
+
+    <script src="script.js"></script>
   </body>
 </html>
