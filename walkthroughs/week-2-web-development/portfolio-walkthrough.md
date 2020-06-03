@@ -8,7 +8,7 @@ Engine to deploy that webpage to a public URL.
 You can return to this walkthrough anytime by running this command:
 
 ```bash
-teachme ~/step/walkthroughs/week-2-web-development/portfolio-walkthrough.md
+teachme ~/step/walkthroughs/week-2-web-development/portfolio-walkthrough.md`
 ```
 
 Click the **Start** button to begin!
