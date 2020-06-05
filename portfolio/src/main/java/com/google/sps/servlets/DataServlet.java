@@ -19,14 +19,65 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import com.google.gson.Gson;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello Toni!</h1>");
+    //Initializing and adding in arrayList
+
+    private ArrayList<String> commentsArr;
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
+    commentsArr = new ArrayList<String>();
+    commentsArr.add(request.getParameter("fname"));
+    commentsArr.add(request.getParameter("lname"));
+    commentsArr.add(request.getParameter("comment"));
+
+    
+    response.getWriter().println("Thank you for your feedback!");
+        response.setContentType("text/html;");
+
+    //Creating an entity
+    Entity taskEntity = new Entity("Task");
+    taskEntity.setProperty("comments", commentsArr);
+
+    //Storing the Entity in datastore
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(taskEntity);
+}
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  
+    }
+
+
+/**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
+
+
+
+
+
+
+ 
+
+
+
+
+
 }

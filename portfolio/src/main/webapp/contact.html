@@ -1,39 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Contact Me</title>
-     <link href="gallery.css" rel="stylesheet">
-     <script src="script.js"> </script>
-</head>
-<body>
-    <p>Hello World!<p>
-        <h2>Automatic Slideshow</h2>
-<p>Change image every 2 seconds:</p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Contact Me </title>
+    <link rel="stylesheet" href="gallery.css">
+  </head>
+<body onload="getComments()">
+    
+    <ul class="topnav">
+    <li><a class="active" href="index.html">Home</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    </ul>
+<br>
 
+<h1 id="comments"></h1>
+<form action="/data" target="_blank" method="POST">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname"><br>
+  <label for="comment">Comment:</label><br>
+  <input type="text" id="comment" name="comment"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+ <h3 style = "text-align: center;"> Gallery </h3>
+    <hr>
 <div class="slideshow-container">
 
 <div class="mySlides fade">
   <div class="numbertext">1 / 4</div>
-  <img src="/imagesAudio/philly.jpg" style="width:100%">
-  <div class="text">Spruce Street Harbor Park, Philadelphia, Pennsylvania</div>
+  <img src="/imagesAudio/philly2.jpg">
+  <div class="text offWhite">Spruce Street Harbor Park, Philadelphia, Pennsylvania</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 4</div>
-  <img src="/imagesAudio/sandiego.jpg" style="width:100%">
-  <div class="text">San Diego, California/div>
+  <img src="/imagesAudio/sandiego2.jpg">
+  <div class="text offWhite">San Diego, California</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 4</div>
-  <img src="/imagesAudio/uncf.JPG" style="width:100%">
-  <div class="text">San Francisco, California</div>
+  <img src="/imagesAudio/uncf2.JPG">
+  <div class="text offWhite">San Francisco, California</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">4 / 4</div>
-  <img src="/imagesAudio/sunset.jpg" style="width:100%">
-  <div class="text">Charlotte, NC</div>
+  <img src="/imagesAudio/sunset2.jpg">
+  <div class="text offWhite">Charlotte, NC</div>
 </div>
 
 </div>
@@ -43,7 +60,9 @@
   <span class="dot"></span> 
   <span class="dot"></span> 
   <span class="dot"></span> 
+  <span class="dot"></span> 
 </div>
 
-</body>
+<script src="script.js"></script>
+ </body>
 </html>

@@ -40,7 +40,6 @@ function addRandomGreeting() {
 */
 
 //Gallery
-
 var slideIndex = 0;
 showSlides();
 
@@ -58,13 +57,19 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+  setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
-  //fetch function
-  async function getRandomQuoteUsingAsyncAwait() {
+
+
+  //fetch inital function
+  async function getComments() {
   const response = await fetch('/data');
   const quote = await response.text();
-  document.getElementById('text-container').innerText = quote;
+  document.getElementById('comments').innerHTML = quote;
+
 }
 
 
+
+
+    
