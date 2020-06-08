@@ -5,7 +5,8 @@
 <title> Contact Me </title>
     <link rel="stylesheet" href="gallery.css">
   </head>
-<body onload="getComments()">
+  
+<body onload="loadTasks()">
     
     <ul class="topnav">
     <li><a class="active" href="index.html">Home</a></li>
@@ -24,6 +25,12 @@
   <input type="text" id="comment" name="comment"><br><br>
   <input type="submit" value="Submit">
 </form>
+
+ <ul id="comment-list"></ul>
+   <p>Number of Comments Displayed:</p>
+      <input type="number" name="number-of-comments" value="5">
+       <input type="submit" />
+      <br/><br/>
 
  <h3 style = "text-align: center;"> Gallery </h3>
     <hr>

@@ -61,14 +61,16 @@ function showSlides() {
 }
 
 
-  //fetch inital function
-  async function getComments() {
-  const response = await fetch('/data');
-  const quote = await response.text();
-  document.getElementById('comments').innerHTML = quote;
+//fetches comment and adds to the DOM
 
+function loadTasks() {
+  fetch('/data?request=3').then(response => response.json()).then((tasks) => {
+    const taskListElement = document.getElementById('comment-list');
+    tasks.forEach((task) => {
+      taskListElement.appendChild(createTaskElement(task));
+    })
+  });
 }
-
 
 
 
