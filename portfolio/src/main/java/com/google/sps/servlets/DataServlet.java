@@ -74,7 +74,7 @@ public class DataServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Query query = new Query("Task").addSort("comments", SortDirection.DESCENDING);
+        Query query = new Query("Comments");
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();   
         PreparedQuery results = datastore.prepare(query);
@@ -89,13 +89,16 @@ public class DataServlet extends HttpServlet {
       
         Task task = new Task(id, fname, lname, timeStamp, postedComment);
         tasks.add(task);
+
     }
         Gson gson = new Gson();
 
         response.setContentType("application/json;");
-        response.getWriter().println(gson.toJson(tasks));
+        String toJson = gson.toJson(tasks);
+        System.out.println("HERE! " + toJson);
+        response.getWriter().println(toJson);
 
-        setNumOfComments(request);
+        // setNumOfComments(request);
 
 
     }
