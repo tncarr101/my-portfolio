@@ -79,6 +79,7 @@ public class DataServlet extends HttpServlet {
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();   
         PreparedQuery results = datastore.prepare(query);
 
+        //Loads all the comments to an arrayList
         List<Task> tasks = new ArrayList<>();
         for (Entity entity : results.asIterable()) {
         long id = entity.getKey().getId();
@@ -91,35 +92,38 @@ public class DataServlet extends HttpServlet {
         tasks.add(task);
 
     }
+
         Gson gson = new Gson();
 
+        // Creates a sublist of the original array list
+        List<Task> maxCommentTask = tasks.subList(0, setNumOfComments(request));
         response.setContentType("application/json;");
-        String toJson = gson.toJson(tasks);
+        String toJson = gson.toJson(maxCommentTask);
         System.out.println("HERE! " + toJson);
         response.getWriter().println(toJson);
 
-        // setNumOfComments(request);
 
 
     }
-
+        //Parses the string from the queryString to a int
          private int setNumOfComments(HttpServletRequest request) {
 
         //Get the user input from form
-        String userCommentLimit = request.getParameter("number-of-comments");
+        String maxCommentsStr= request.getParameter("maxComments");
 
         //Convert the input to a int
-        int commentLimit;
+        int commentLimit = 0;
         try {
-            commentLimit = Integer.parseInt(userCommentLimit);
+            commentLimit = Integer.parseInt(maxCommentsStr);
         } catch (NumberFormatException e) {
-          System.err.println("Could not convert to int: " + userCommentLimit);
+          System.err.println("Could not convert to int: " + maxCommentsStr);
           return -1;
         }
 
         return commentLimit;
 
     }
+
 
 /**
    * @return the request parameter, or the default value if the parameter

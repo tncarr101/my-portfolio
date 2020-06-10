@@ -65,35 +65,47 @@ function createTaskElement(task) {
   const taskElement = document.createElement('li');
   taskElement.className = 'task';
 
-  const titleElement = document.createElement('span');
- // titleElement.innerText = task.fname;
- // titleElement.innerText = task.lname;
-  titleElement.innerText = task.postedComment;
-  
+  const comment = document.createElement('span');
+  comment.innerText = task.postedComment;
+  const fUser = document.createElement('span');
+  fUser.innerText = task.fname;
+  const lUser = document.createElement('span');
+  lUser.innerText = task.lname;
+
 
   const deleteButtonElement = document.createElement('button');
   deleteButtonElement.innerText = 'Delete';
   deleteButtonElement.addEventListener('click', () => {
     deleteTask(task);
 
-    // Remove the task from the DOM.
+// Remove the task from the DOM.
     taskElement.remove();
   });
 
-  taskElement.appendChild(titleElement);
+  taskElement.appendChild(comment);
+  //taskElement.appendChild(fUser);
+  //taskElement.appendChild(lUser);
   taskElement.appendChild(deleteButtonElement);
   return taskElement;
 }
 
-//fetches comment and adds to the DOM
+//Method that retrieves data from the select element
+function setNumComment() {
+  const maxComments = document.getElementById('numOfCom').value;
+  return maxComments;
+}
+
+//Fetches comment and adds to the DOM
 function loadTasks() {
-  fetch('/data').then(response => response.json()).then((tasks) => {
+  fetch('/data?maxComments='+setNumComment()).then(response => response.json()).then((tasks) => {
     const taskListElement = document.getElementById('comment-list');
     tasks.forEach((task) => {
       taskListElement.appendChild(createTaskElement(task));
     })
   });
 }
+
+
 
 /** Tells the server to delete the task. */
 function deleteTask(task) {
