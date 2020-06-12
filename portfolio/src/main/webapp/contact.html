@@ -1,85 +1,95 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title> Contact Me </title>
-    <link rel="stylesheet" href="gallery.css">
-  </head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <title> Contact Me </title>
+        <link rel="stylesheet" href="gallery.css">
+        <script src="script.js"></script>
+    </head>
   
-<body onload="loadTasks()">
+    <body onload="loadTasks(); showSlides();">
+        
+        <!-- Navigation Bar -->
+        <nav id = "navBar">
+            <ul class="topnav">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            </ul>
+        <br>
+        </nav>
+
+        <!-- Google Maps Implementation -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmu3kVZ-AIm1fhWgugcyKTl3cOUsmiYWc&callback=createMap">
+        </script>
+        <div id="map"></div>
     
-    <ul class="topnav">
-    <li><a class="active" href="index.html">Home</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    </ul>
-<br>
-
-<h1 id="comments"></h1>
-<form action="/data" target="_blank" method="POST">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname"><br>
-  <label for="comment">Comment:</label><br>
-  <input type="text" id="comment" name="comment"><br><br>
-  <input type="submit" value="Submit">
-</form>
-
-<p>Number of Comments Displayed:</p>
-
-  <label for="numOfCom">Select the number of comments to be displayed:</label>
-  <select name="numOfCom" id="numOfCom">
-    <option value="5">5</option>
-    <option value="10">10</option>
-    <option value="15">15</option>
-    <option value="20">20</option>
-  </select>
-  <br><br>
-  <input type="submit" value="Submit" onClick= "loadTasks()">
 
 
- <ul id="comment-list"></ul>
-      <br/><br/>
+        <!--Gallery Implementation --> 
+        <h3 style = "text-align: center"> Gallery </h3>
+            <hr>
+        <div class="slideshow-container">
 
- <h3 style = "text-align: center;"> Gallery </h3>
-    <hr>
-<div class="slideshow-container">
+            <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <img src="/imagesAudio/philly2.jpg">
+            <div class="text offWhite">Spruce Street Harbor Park, Philadelphia, Pennsylvania</div>
+            </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">1 / 4</div>
-  <img src="/imagesAudio/philly2.jpg">
-  <div class="text offWhite">Spruce Street Harbor Park, Philadelphia, Pennsylvania</div>
-</div>
+            <div class="mySlides fade">
+            <div class="numbertext">2 / 4</div>
+            <img src="/imagesAudio/sandiego2.jpg">
+            <div class="text offWhite">San Diego, California</div>
+            </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 4</div>
-  <img src="/imagesAudio/sandiego2.jpg">
-  <div class="text offWhite">San Diego, California</div>
-</div>
+            <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <img src="/imagesAudio/uncf2.JPG">
+            <div class="text offWhite">San Francisco, California</div>
+            </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">3 / 4</div>
-  <img src="/imagesAudio/uncf2.JPG">
-  <div class="text offWhite">San Francisco, California</div>
-</div>
+            <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="/imagesAudio/sunset2.jpg">
+            <div class="text offWhite">Charlotte, NC</div>
+            </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">4 / 4</div>
-  <img src="/imagesAudio/sunset2.jpg">
-  <div class="text offWhite">Charlotte, NC</div>
-</div>
+        </div>
+        <br>
 
-</div>
-<br>
+        <div style="text-align:center">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        </div>
 
-<div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-</div>
+        <!-- Comment Implementation -->
+        <h1 id="comments"></h1>
+        <form action="/data" target="_blank" method="POST">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="comment">Comment:</label><br>
+        <input type="text" id="comment" name="comment"><br><br>
+        <input type="submit" value="Submit">
+        </form>
 
-<script src="script.js"></script>
- </body>
+        <!-- Comment Limiting -->
+        <p>Number of Comments Displayed:</p>
+
+        <label for="numOfCom">Select the number of comments to be displayed:</label>
+        <select name="numOfCom" id="numOfCom">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit" onClick= "loadTasks()">
+        <ul id="comment-list"></ul>
+  </body>
 </html>

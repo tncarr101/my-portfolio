@@ -15,29 +15,24 @@
 /**
  * Adds a random greeting to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+// function addRandomGreeting() {
+//   const greetings =
+//       ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+//   // Pick a random greeting.
+//   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
-
-  //setting volume of audio    
-  document.getElementById("song").volume = 0.2;
+//   // Add it to the page.
+//   const greetingContainer = document.getElementById('greeting-container');
+//   greetingContainer.innerText = greeting;
+// }
 
 
-/*
-  window.onload = function() {
-    document.getElementById("song").play();
-    
-}
 
-*/
+//   //setting volume of audio    
+//   var aud = document.getElementById("song");
+//   aud.volume = 0.2;
+
 
 //Gallery
 var slideIndex = 0;
@@ -91,9 +86,12 @@ function createTaskElement(task) {
 
 //Method that retrieves data from the select element
 function setNumComment() {
-  const maxComments = document.getElementById('numOfCom').value;
+    const maxComments = document.getElementById('numOfCom').value;
+
   return maxComments;
+
 }
+
 
 //Fetches comment and adds to the DOM
 function loadTasks() {
@@ -105,11 +103,23 @@ function loadTasks() {
   });
 }
 
-
-
 /** Tells the server to delete the task. */
 function deleteTask(task) {
   const params = new URLSearchParams();
   params.append('id', task.id);
   fetch('/delete-task', {method: 'POST', body: params});
+}
+
+
+/*Google Map */
+
+function createMap() {
+    var map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 35.2271, lng: -80.8431 },
+    zoom: 8,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+  });
+
+   
+ 
 }

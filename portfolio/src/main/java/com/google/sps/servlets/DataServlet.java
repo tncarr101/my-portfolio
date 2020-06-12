@@ -69,7 +69,7 @@ public class DataServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(taskEntity);
     
-
+    	response.sendRedirect("/contact.html");
 
     }
 
@@ -96,13 +96,11 @@ public class DataServlet extends HttpServlet {
         Gson gson = new Gson();
 
         // Creates a sublist of the original array list
-        List<Task> maxCommentTask = tasks.subList(0, setNumOfComments(request));
+        List<Task> maxCommentTask = tasks.subList(0, Math.min(tasks.size(), setNumOfComments(request)));
         response.setContentType("application/json;");
         String toJson = gson.toJson(maxCommentTask);
-        System.out.println("HERE! " + toJson);
+        //System.out.println("HERE! " + toJson);
         response.getWriter().println(toJson);
-
-
 
     }
         //Parses the string from the queryString to a int
@@ -123,7 +121,6 @@ public class DataServlet extends HttpServlet {
         return commentLimit;
 
     }
-
 
 /**
    * @return the request parameter, or the default value if the parameter
