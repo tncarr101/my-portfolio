@@ -112,14 +112,16 @@ function deleteTask(task) {
 
 
 /*Google Map */
-
 function createMap() {
+    var tacoma = {lat: 47.258728, lng: -122.4443};
+    var charlotte = {lat: 35.227085, lng: -80.843124};
     var map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 35.2271, lng: -80.8431 },
-    zoom: 8,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    zoom: 5,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   });
-
+   var markerTacoma = new google.maps.Marker({position: tacoma, map: map});
+   var markerCharlotte = new google.maps.Marker({position: charlotte, map: map});
    
  
 }
