@@ -115,6 +115,10 @@ function deleteTask(task) {
 function createMap() {
     var tacoma = {lat: 47.258728, lng: -122.4443};
     var charlotte = {lat: 35.227085, lng: -80.843124};
+    var sanFran = {lat: 37.773972, lng: -122.431297};
+     var tillar = {lat: 33.7123, lng: -91.4529};
+     var auburn = {lat: 32.609856, lng: -85.480782};
+     var wichita = {lat: 37.697948, lng: -97.314835};
     var map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 35.2271, lng: -80.8431 },
     zoom: 5,
@@ -122,6 +126,8 @@ function createMap() {
   });
    var markerTacoma = new google.maps.Marker({position: tacoma, map: map});
    var markerCharlotte = new google.maps.Marker({position: charlotte, map: map});
-   
- 
+   var markerSanFran = new google.maps.Marker({position: sanFran, map: map});
+   var markerTillar = new google.maps.Marker({position: tillar, map: map});
+   var markerAuburn = new google.maps.Marker({position: auburn, map: map});
+   var markerWichita = new google.maps.Marker({position: wichita, map: map}); 
 }
