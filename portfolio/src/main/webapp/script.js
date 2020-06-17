@@ -120,8 +120,8 @@ function createMap() {
      var auburn = {lat: 32.609856, lng: -85.480782};
      var wichita = {lat: 37.697948, lng: -97.314835};
     var map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 35.2271, lng: -80.8431 },
-    zoom: 5,
+    center: { lat: 39.0119, lng: -98.4842},
+    zoom: 4,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
    var markerTacoma = new google.maps.Marker({position: tacoma, map: map});
