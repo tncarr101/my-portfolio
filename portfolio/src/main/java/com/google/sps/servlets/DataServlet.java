@@ -103,7 +103,7 @@ public class DataServlet extends HttpServlet {
 
     }
         //Parses the string from the queryString to a int
-         private int setNumOfComments(HttpServletRequest request) {
+         private int getNumOfComments(HttpServletRequest request) {
 
         //Get the user input from form
         String maxCommentsStr= request.getParameter("maxComments");
