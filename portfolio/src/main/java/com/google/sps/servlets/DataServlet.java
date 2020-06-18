@@ -96,7 +96,7 @@ public class DataServlet extends HttpServlet {
         Gson gson = new Gson();
 
         // Creates a sublist of the original array list
-        List<Task> maxCommentTask = tasks.subList(0, Math.min(tasks.size(), setNumOfComments(request)));
+        List<Task> maxCommentTask = tasks.subList(0, Math.min(tasks.size(), getNumOfComments(request)));
         response.setContentType("application/json;");
         String toJson = gson.toJson(maxCommentTask);
         response.getWriter().println(toJson);
