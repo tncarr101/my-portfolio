@@ -81,7 +81,7 @@ public class DataServlet extends HttpServlet {
 
         //Loads all the comments to an arrayList
         List<Task> tasks = new ArrayList<>();
-        for (Entity entity : results.asIterable()) {
+            for (Entity entity : results.asIterable()) {
         long id = entity.getKey().getId();
         String fname = (String) entity.getProperty("First Name");
         String lname = (String) entity.getProperty("Last Name");
@@ -99,7 +99,6 @@ public class DataServlet extends HttpServlet {
         List<Task> maxCommentTask = tasks.subList(0, Math.min(tasks.size(), setNumOfComments(request)));
         response.setContentType("application/json;");
         String toJson = gson.toJson(maxCommentTask);
-        //System.out.println("HERE! " + toJson);
         response.getWriter().println(toJson);
 
     }
