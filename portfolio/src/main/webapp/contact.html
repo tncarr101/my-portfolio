@@ -60,10 +60,10 @@
         <br>
 
         <div style="text-align:center">
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
         </div>
             <hr>
         <!-- Comment Implementation -->
@@ -88,8 +88,18 @@
             <option value="15">15</option>
             <option value="20">20</option>
         </select>
-        <br><br>
         <input type="submit" value="Submit" onClick= "loadTasks()">
+        <br><br>
+
+        <!-- Translation -->
+         <label for="translate"> Change the language of comments: </label>
+        <select name="translate" id="translate">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+        </select>
+        <button onclick="requestTranslation();">Translate</button>
+        <br><br>
+        
         <ul id="comment-list"></ul>
   </body>
 </html>

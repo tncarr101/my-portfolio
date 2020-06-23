@@ -139,3 +139,9 @@ ul.topnav li.right {float: right;}
   position: relative;
 
 }
+/* Translation */
+#language {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

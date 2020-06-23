@@ -82,14 +82,19 @@ function createTaskElement(task) {
   //taskElement.appendChild(lUser);
   taskElement.appendChild(deleteButtonElement);
   return taskElement;
+
+//Completing the translate action after button is pressed
+const translateButtonElement = document.createElement('button');
+  translateButtonElement.innerText = 'Translate';
+  translateButtonElement.addEventListener('click', () => {
+    requestTranslation(task); });
+
 }
 
 //Method that retrieves data from the select element
 function setNumComment() {
     const maxComments = document.getElementById('numOfCom').value;
-
-  return maxComments;
-
+    return maxComments;
 }
 
 
@@ -98,7 +103,7 @@ function loadTasks() {
   fetch('/data?maxComments='+setNumComment()).then(response => response.json()).then((tasks) => {
     const taskListElement = document.getElementById('comment-list');
     tasks.forEach((task) => {
-      taskListElement.appendChild(createTaskElement(task));
+    taskListElement.appendChild(createTaskElement(task));
     })
   });
 }
@@ -116,9 +121,9 @@ function createMap() {
     var tacoma = {lat: 47.258728, lng: -122.4443};
     var charlotte = {lat: 35.227085, lng: -80.843124};
     var sanFran = {lat: 37.773972, lng: -122.431297};
-     var tillar = {lat: 33.7123, lng: -91.4529};
-     var auburn = {lat: 32.609856, lng: -85.480782};
-     var wichita = {lat: 37.697948, lng: -97.314835};
+    var tillar = {lat: 33.7123, lng: -91.4529};
+    var auburn = {lat: 32.609856, lng: -85.480782};
+    var wichita = {lat: 37.697948, lng: -97.314835};
     var map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 39.0119, lng: -98.4842},
     zoom: 4,
@@ -130,4 +135,128 @@ function createMap() {
    var markerTillar = new google.maps.Marker({position: tillar, map: map});
    var markerAuburn = new google.maps.Marker({position: auburn, map: map});
    var markerWichita = new google.maps.Marker({position: wichita, map: map}); 
+    
+    //Tacoma Marker Content
+ var contentString = '<div id="content">'+
+      '<h1 id="firstHeading" class="firstHeading">Tacoma, WA</h1>'+
+      '<div id="bodyContent">'+
+      '<p> Tacoma is my birth place. I was born here and lived in this city until ' +
+      'I was 10 years old.  '+
+      '</div>'+
+      '</div>';
+
+  var infowindowTac = new google.maps.InfoWindow({
+    content: contentString
+  });
+  markerTacoma.addListener('click', function() {
+    infowindowTac.open(map, markerTacoma);
+  });
+
+    //Charlotte Marker Content
+   var contentString = '<div id="content">'+
+      '<h1 id="firstHeading" class="firstHeading">Charlotte, NC</h1>'+
+      '<div id="bodyContent">'+
+      '<p> I moved to Charlotte, North Carolina at 10 years. I have called this city ' +
+      'home since then.' +
+      '</div>'+
+      '</div>';
+
+  var infowindowChar = new google.maps.InfoWindow({
+    content: contentString
+  });
+  markerCharlotte.addListener('click', function() {
+    infowindowChar.open(map, markerCharlotte);
+  });
+
+    //San Fran Marker Content
+   var contentString = '<div id="content">'+
+      '<h1 id="firstHeading" class="firstHeading">San Francisco, CA</h1>'+
+      '<div id="bodyContent">'+
+      '<p> This is the birthplace of my mother, she lived here until she moved to Seattle. ' +
+      '</div>'+
+      '</div>';
+
+  var infowindowSanFran = new google.maps.InfoWindow({
+    content: contentString
+  });
+  markerSanFran.addListener('click', function() {
+    infowindowSanFran.open(map, markerSanFran);
+  });
+
+    //Tillar Marker Content
+   var contentString = '<div id="content">'+
+      '<h1 id="firstHeading" class="firstHeading">Tillar, AR</h1>'+
+      '<div id="bodyContent">'+
+      '<p> This is the birthplace of my paternal grandmother. Her family lived on a farm ' +
+      '</div>' +
+      '</div>';
+
+  var infowindowTillar = new google.maps.InfoWindow({
+    content: contentString
+  });
+  markerTillar.addListener('click', function() {
+    infowindowTillar.open(map, markerTillar);
+  });
+
+    //Auburn Marker Content
+   var contentString = '<div id="content">'+
+      '<h1 id="firstHeading" class="firstHeading">Auburn, AL</h1>'+
+      '<div id="bodyContent">'+
+      '<p> This is the home of my maternal grandmother. Her family owns land.   ' +
+      '</div>'+
+      '</div>';
+
+  var infowindowAub = new google.maps.InfoWindow({
+    content: contentString
+  });
+  markerAuburn.addListener('click', function() {
+    infowindowAub.open(map, markerAuburn);
+  });
+
+    //Wichita Marker Content
+   var contentString = '<div id="content">'+
+      '<h1 id="firstHeading" class="firstHeading">Wichita, KS</h1>'+
+      '<div id="bodyContent">'+
+      '<p> This is the birthplace and hometown of my father. He grew up here until he left for the military at 17. ' +
+      '</div>'+
+      '</div>';
+
+  var infowindowWitchita = new google.maps.InfoWindow({
+    content: contentString
+  });
+  markerWichita.addListener('click', function() {
+    infowindowWitchita.open(map, markerWichita);
+  });
+
 }
+
+
+
+/* Translation Functions */
+
+function getLanguageVal() {
+    const langVal = document.getElementById('translate').value;
+    return langVal;
+}
+
+function requestTranslation(task) {
+    // const text = document.getElementById('text').value;
+     const languageCode = document.getElementById('translate').value;
+
+    // const resultContainer = document.getElementById('result');
+    // resultContainer.innerText = 'Loading...';
+
+    const params = new URLSearchParams();
+    params.append('id', task.id);
+    params.append('languageCode', languageCode);
+
+    fetch('/data', {
+        method: 'GET',
+        body: params
+        }).then(response => response.text())
+        .then((translatedMessage) => {
+        resultContainer.innerText = translatedMessage;
+        });
+}
+
+ 
