@@ -84,6 +84,7 @@ public class DataServlet extends HttpServlet {
 
         //Loads all the comments to an arrayList
         List<Task> tasks = new ArrayList<>();
+<<<<<<< HEAD
         for (Entity entity : results.asIterable()) {
             long id = entity.getKey().getId();
             String fname = (String) entity.getProperty("First Name");
@@ -95,6 +96,19 @@ public class DataServlet extends HttpServlet {
             tasks.add(task);
 
         }
+=======
+        
+            for (Entity entity : results.asIterable()) {
+        long id = entity.getKey().getId();
+        String fname = (String) entity.getProperty("First Name");
+        String lname = (String) entity.getProperty("Last Name");
+        long timeStamp = (long) entity.getProperty("Timestamp");
+        String postedComment = (String) entity.getProperty("Comment Posted");
+      
+        Task task = new Task(id, fname, lname, timeStamp, postedComment);
+        tasks.add(task);
+    }
+>>>>>>> 3127756de202457d3313902a36f8dda609bb7e29
 
         Gson gson = new Gson();
 
@@ -105,8 +119,13 @@ public class DataServlet extends HttpServlet {
         response.getWriter().println(toJson);
 
     }
+<<<<<<< HEAD
     //Parses the string from the queryString to a int
     private int getNumOfComments(HttpServletRequest request) {
+=======
+        //Parses the string from the queryString to a int
+         private int getNumOfComments(HttpServletRequest request) {
+>>>>>>> 3127756de202457d3313902a36f8dda609bb7e29
 
         //Get the user input from form
         final String PARAM_COMMENT_NUM = request.getParameter("maxComments");
